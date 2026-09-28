@@ -120,7 +120,7 @@ function writeStorage(key: string, value: unknown) {
   }
 }
 function readCompletedCourses(): number[] {
-  const saved = readStorage<unknown>("oil-gas-completed-courses-v2", defaultCompleted);
+  const saved = readStorage<unknown>("geophysics-completed-courses-v2", defaultCompleted);
   if (!Array.isArray(saved)) return [];
   const validIds = new Set(courses.map((course) => course.id));
   return saved.filter((id): id is number => typeof id === "number" && Number.isInteger(id) && validIds.has(id)).filter((id, index, ids) => ids.indexOf(id) === index);
@@ -130,11 +130,11 @@ function pickMotivation(): string {
 }
 
 function readStudentName() {
-  const saved = readStorage<string | null>("oil-gas-student-name-v2", null);
+  const saved = readStorage<string | null>("geophysics-student-name-v2", null);
   return saved && !["محمد حسن", "Mohammed Hassan", "محمد الرواب"].includes(saved.trim()) ? saved : "";
 }
 function readPdfSelection(): number[] {
-  const saved = readStorage<unknown>("oil-gas-pdf-selection-v1", []);
+  const saved = readStorage<unknown>("geophysics-pdf-selection-v1", []);
   if (!Array.isArray(saved)) return [];
   const validIds = new Set(courses.map((course) => course.id));
   return saved.filter((id): id is number => typeof id === "number" && Number.isInteger(id) && validIds.has(id)).filter((id, index, ids) => ids.indexOf(id) === index);
@@ -214,14 +214,14 @@ export default function Home() {
   const [motivationMessage, setMotivationMessage] = useState(pickMotivation);
 
   useEffect(() => {
-    if (studentName.trim()) writeStorage("oil-gas-student-name-v2", studentName.trim().slice(0, 80));
+    if (studentName.trim()) writeStorage("geophysics-student-name-v2", studentName.trim().slice(0, 80));
     else {
-      try { localStorage.removeItem("oil-gas-student-name-v2"); } catch { /* storage may be unavailable */ }
+      try { localStorage.removeItem("geophysics-student-name-v2"); } catch { /* storage may be unavailable */ }
     }
   }, [studentName]);
 
   useEffect(() => {
-    writeStorage("oil-gas-completed-courses-v2", completed);
+    writeStorage("geophysics-completed-courses-v2", completed);
   }, [completed]);
   useEffect(() => {
     // Preload the Ruqaa font so it is ready inside the print dialog (its text is hidden otherwise).
@@ -237,7 +237,7 @@ export default function Home() {
       .catch(() => { /* offline: fallback font stays in use */ });
   }, []);
   useEffect(() => {
-    writeStorage("oil-gas-pdf-selection-v1", pdfSelection);
+    writeStorage("geophysics-pdf-selection-v1", pdfSelection);
   }, [pdfSelection]);
   useEffect(() => {
     const restoreAfterPrint = () => document.body.classList.remove("printing-report");
