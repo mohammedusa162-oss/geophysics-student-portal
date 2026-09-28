@@ -93,7 +93,6 @@ const courses: Course[] = [
   { id: 53, name: "معالجة البيانات السيزمية – Seismic Data Processing", code: "GPE431", type: "إجبارية", credits: 3, semester: 7 },
   { id: 54, name: "الندوة الجيولوجية والجيوفيزيائية – Geological & Geophysical Seminar", code: "GPE522", type: "إجبارية", credits: 1, semester: 7 },
   { id: 55, name: "تفسير البيانات السيزمية – Seismic Interpretation", code: "GPE505", type: "إجبارية", credits: 3, semester: 7 },
-  { id: 56, name: "اختياري – Elective", code: "—", type: "اختيارية", credits: null, semester: 7 },
   { id: 57, name: "الجيوفيزياء الحقلية (مخيم) – Field Geophysics", code: "GPE521", type: "إجبارية", credits: 4, semester: 7 },
   { id: 58, name: "جيوفيزياء المكامن – Reservoir Geophysics", code: "GPE425", type: "إجبارية", credits: 3, semester: 7 },
   { id: 59, name: "تطبيقات الحاسب المتقدمة في الجيولوجية والجيوفيزيائية 2 – Computer Application in Geology & Geophysical Advance 2", code: "GPE507", type: "إجبارية", credits: 3, semester: 8 },
