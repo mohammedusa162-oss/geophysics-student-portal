@@ -35,7 +35,7 @@ jobs:
 
       - name: Build frontend
         env:
-          BASE_PATH: /oil-gas-student-portal/
+          BASE_PATH: /geophysics-student-portal/
         run: pnpm exec vite build
 
       - name: Add SPA fallback
